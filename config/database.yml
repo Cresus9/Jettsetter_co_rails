@@ -85,10 +85,19 @@ test:
 #   username: react_rails_api_project_template
 #   password: <%= ENV['REACT_RAILS_API_PROJECT_TEMPLATE_DATABASE_PASSWORD'] %>
 
+# production:
+#   <<: *default
+#   url: <%= ENV['DATABASE_URL'] %>
+#   database: capstone_project_production
+#   username: thierryyabre
+#   password: <%= ENV['CAPSTONE_PROJECT_DATABASE_PASSWORD'] %>
+
 production:
-  <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: capstone_project_production
+  password: nQSZMnkEEEzpxS529R8g5yFDi4wJFbsh
+  host: dpg-ckvf6ljamefc7383dr5g-a.oregon-postgres.render.com
+  port: 5432
   database: capstone_project_production
-  username: thierryyabre
-  password: <%= ENV['CAPSTONE_PROJECT_DATABASE_PASSWORD'] %>
-  
